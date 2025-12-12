@@ -1,0 +1,24 @@
+# MySQL Data Directory
+data/
+
+# MySQL Binary and Runtime Files
+bin/
+lib/
+share/
+include/
+docs/
+
+# MySQL Configuration (use my.ini.example as template)
+my.ini
+
+# Log Files
+*.log
+*.err
+
+# Temporary Files
+*.tmp
+*.pid
+
+# License and Default README from MySQL
+LICENSE
+README

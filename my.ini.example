@@ -1,0 +1,10 @@
+[mysqld]
+basedir="E:/DATABASE/MYSQL/mysql_3307"
+datadir="E:/DATABASE/MYSQL/mysql_3307/data"
+port=3307
+default-storage-engine=InnoDB
+character-set-server=utf8mb4
+collation-server=utf8mb4_general_ci
+
+[client]
+port=3307
