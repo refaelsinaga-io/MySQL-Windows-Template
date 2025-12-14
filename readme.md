@@ -6,32 +6,59 @@ MySQL standalone yang berjalan di port 3307, terpisah dari MySQL XAMPP (port 330
 
 ## Daftar Isi
 
-1. [Setup](#setup)
-2. [Perintah Dasar](#perintah-dasar)
-3. [Koneksi ke MySQL](#koneksi-ke-mysql)
-4. [Manajemen User](#manajemen-user)
-5. [Manajemen Database](#manajemen-database)
-6. [Akses Remote](#akses-remote)
-7. [Troubleshooting](#troubleshooting)
+1. [Download MySQL](#download-mysql)
+2. [Setup](#setup)
+3. [Perintah Dasar](#perintah-dasar)
+4. [Koneksi ke MySQL](#koneksi-ke-mysql)
+5. [Manajemen User](#manajemen-user)
+6. [Manajemen Database](#manajemen-database)
+7. [Akses Remote](#akses-remote)
+8. [Troubleshooting](#troubleshooting)
+
+---
+
+## Download MySQL
+
+1. Kunjungi situs resmi MySQL: https://dev.mysql.com/downloads/mysql/
+2. Pilih **"Windows (x86, 64-bit), ZIP Archive"**
+3. Klik tombol **"Download"** (pilih "No thanks, just start my download")
+4. Extract ZIP ke folder yang diinginkan (contoh: `E:\DATABASE\MYSQL\mysql_3307`)
 
 ---
 
 ## Setup
 
-1. Copy `my.ini.example` menjadi `my.ini`
-2. Sesuaikan path `basedir` dan `datadir` sesuai lokasi instalasi Anda
-3. Inisialisasi database:
-   ```cmd
-   mysqld --initialize-insecure --user=mysql
-   ```
-4. Install sebagai service:
-   ```cmd
-   mysqld --install MySQL3307 --defaults-file="path\to\my.ini"
-   ```
-5. Jalankan service:
-   ```cmd
-   net start MySQL3307
-   ```
+**Contoh:** Instalasi di `D:\dbase\Mysql-3306`
+
+### 1. Buat folder `data`
+```cmd
+mkdir D:\dbase\Mysql-3306\data
+```
+
+### 2. Copy dan edit `my.ini`
+Copy `my.ini.example` menjadi `my.ini`, lalu sesuaikan path:
+```ini
+[mysqld]
+basedir=D:/dbase/Mysql-3306
+datadir=D:/dbase/Mysql-3306/data
+port=3306
+```
+
+### 3. Inisialisasi database
+Buka **Command Prompt as Administrator**, lalu jalankan:
+```cmd
+D:\dbase\Mysql-3306\bin\mysqld --defaults-file="D:\dbase\Mysql-3306\my.ini" --initialize-insecure
+```
+
+### 4. Install sebagai Windows Service
+```cmd
+D:\dbase\Mysql-3306\bin\mysqld --install MySQL3306 --defaults-file="D:\dbase\Mysql-3306\my.ini"
+```
+
+### 5. Jalankan service
+```cmd
+net start MySQL3306
+```
 
 ### Konfigurasi Default
 
